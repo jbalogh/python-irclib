@@ -780,7 +780,10 @@ class ServerConnection(Connection):
         """Send raw string to the server.
 
         The string will be padded with appropriate CR LF.
+        From here everything need to be encoded in str from utf-8
         """
+        string=string.encode('utf-8')
+
         if self.socket is None:
             raise ServerNotConnectedError, "Not connected."
         try:
